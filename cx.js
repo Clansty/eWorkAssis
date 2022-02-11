@@ -24,20 +24,13 @@
 
 var _hmt = _hmt || [];
 
-(function() {
-var hm = document.createElement("script");
-hm.src = "https://hm.baidu.com/hm.js?c2daa8e62b938a0869a122a0d6da4e9a";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(hm, s);
-})();
-
 
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 const api_array = [
-  "http://ti.fakev.cn/hashTopic?question=",
+  "https://souti.lwqwq.com/hashTopic?question=",
 ];
 
 // 设置修改后，需要刷新或重新打开网课页面才会生效
