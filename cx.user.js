@@ -7,6 +7,7 @@
 // @match        *://*.chaoxing.com/*
 // @connect      ti.fakev.cn
 // @connect      baidu.com
+// @connect      souti.lwqwq.com
 // @require      https://cdn.bootcdn.net/ajax/libs/jquery/2.0.0/jquery.js
 // @run-at       document-end
 // @grant        unsafeWindow
@@ -104,7 +105,7 @@ setting.TiMu = [
 ];
 
 setting.div = $(
-    '<div style="border: 2px dashed rgb(0, 85, 68); width: 330px; position: fixed; top: 0; right: 0; z-index: 99999; background-color: rgba(70, 196, 38, 0.6); overflow-x: auto;">' +
+    '<div style="border: 2px dashed rgb(0, 85, 68); width: 900px; position: fixed; top: 0; right: 0; z-index: 99999; background-color: rgba(70, 196, 38, 0.6); overflow-x: auto;">' +
         '<span style="font-size: medium;"></span>' +
         '<div style="font-size: medium;">正在搜索答案...</div>' +
         '<button style="margin-right: 10px;">暂停答题</button>' +
@@ -112,7 +113,7 @@ setting.div = $(
         '<button style="margin-right: 10px;">重新查询</button>' +
         '<button style="margin-right: 10px; display: none;">复制答案</button>' +
         '<button>答题详情</button>' +
-        '<div style="max-height: 200px; overflow-y: auto;">' +
+        '<div style="max-height: 200px; overflow: auto;" class="answerTable">' +
             '<table border="1" style="font-size: 12px;">' +
                 '<thead>' +
                     '<tr>' +
@@ -135,6 +136,11 @@ setting.div = $(
                 '</tbody>' +
             '</table>' +
         '</div>' +
+	`<style>
+	  .answerTable::-webkit-scrollbar {
+	  	display: unset;
+	  }
+	</style>`+
     '</div>'
 ).appendTo('body').on('click', 'button, td', function() {
     var num = setting.$btn.index(this);
