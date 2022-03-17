@@ -137,8 +137,8 @@ setting.div = $(
             '</table>' +
         '</div>' +
 	`<style>
-	  .answerTable::-webkit-scrollbar {
-	  	display: unset;
+	  .top::-webkit-scrollbar {
+	  	display: unset !important;
 	  }
 	</style>`+
     '</div>'
@@ -700,8 +700,8 @@ setting.div = $(
     '</table>' +
     '</div>' +
 	`<style>
-	  .answerTable::-webkit-scrollbar {
-	  	display: unset;
+	  .top::-webkit-scrollbar {
+	  	display: unset !important;
 	  }
 	</style>`+
     '</div>'
