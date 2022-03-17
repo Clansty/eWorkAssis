@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         超星网课助手/刷课/搜题（支持图片）/考试/all in one(fake题)
 // @namespace    lyj
-// @version      3.2.6
+// @version      3.3.0
 // @description  考试版已经合并，自动答题，视频自动完成，章节测验自动答题提交，自动切换任务点等，开放自定义参数
 // @author       lyj
 // @match        *://*.chaoxing.com/*
@@ -671,14 +671,14 @@ setting.div = $(
     '<script>function openImg(src) {layui.use(\'layer\', function () {this.layer.open({type: 1,title: \'查看大图\', skin: \'layui-layer-rim\', area: [\'900x\', \'700px\'], content: \'<img  style="max-width: 800px" src="\'+src+\'" >\'});});}</script>'+
     '<style>.top::-webkit-scrollbar {display: none;}</style>'+
     '<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">'+
-    '<div style="border: 2px solid #F9CDAD;padding: 5px;border-radius: 5px; width: 380px; position: fixed; top: 0; right: 0; z-index: 99999; background-color: rgba(249, 205, 173, 0.35); overflow-x: auto;backdrop-filter: blur(5px);">' +
+    '<div style="border: 2px solid #F9CDAD;padding: 5px;border-radius: 5px; width: 900px; position: fixed; top: 0; right: 0; z-index: 99999; background-color: rgba(249, 205, 173, 0.35); overflow-x: auto;backdrop-filter: blur(5px);">' +
     '<span style="font-size: medium;"></span>' + a +
     '<div class="btn-group"><button class="btn btn-light btn-sm" style="opacity: 0.9">暂停答题</button>' +
     '<button class="btn btn-light btn-sm" style="opacity: 0.9">' + (setting.auto ? '取消本次自动提交' : '开启本次自动提交') + '</button>' +
     '<button class="btn btn-light btn-sm" style="opacity: 0.9">重新查询</button>' +
     '<button class="btn btn-light btn-sm" style="opacity: 0.9">折叠面板</button></div><br />' +
     '<input id="autosubmit" type="checkbox"' + (setting.auto ? ' checked' : '') + '>自动提交</input>' +
-    '<div class="top" style="max-height: 440px; overflow-y: auto;">' +
+    '<div class="top" style="max-height: 440px; overflow: auto;" class="answerTable">' +
     '<table border="1" style="font-size: 12px;">' +
     '<thead>' +
     '<tr>' +
@@ -699,6 +699,11 @@ setting.div = $(
     '</tbody>' +
     '</table>' +
     '</div>' +
+	`<style>
+	  .answerTable::-webkit-scrollbar {
+	  	display: unset;
+	  }
+	</style>`+
     '</div>'
 ).appendTo('body').on('click', 'button, td, input', function() {
     var len = $(this).prevAll('button').length;
